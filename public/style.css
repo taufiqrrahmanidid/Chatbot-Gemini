@@ -1,0 +1,378 @@
+:root {
+    --primary-purple: #6c00ff;
+    --primary-purple-hover: #5500cc;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --text-dark: #333333;
+    --text-muted: #888888;
+    --bubble-bot: #f1f2f6;
+    --bubble-user: #6c00ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #eef2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    width: 95%;
+    max-width: 1300px;
+    height: 90vh;
+    background-color: transparent;
+    gap: 20px;
+}
+
+/* Sidebar Kiri */
+.sidebar {
+    width: 90px;
+    background-color: var(--primary-purple);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    color: white;
+}
+
+.profile-pic img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.menu-icons {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+}
+
+.icon {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 22px;
+    text-decoration: none;
+    transition: 0.3s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.icon:hover, .icon.active {
+    color: white;
+}
+
+.icon.active::after {
+    content: '';
+    position: absolute;
+    right: -25px; /* Menyesuaikan jarak ke pinggir sidebar */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 30px;
+    background-color: #ffd700;
+    border-radius: 5px;
+}
+
+/* Sidebar Tengah (Daftar Chat) */
+.chat-sidebar {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-bar {
+    background-color: var(--bg-white);
+    border-radius: 15px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.search-bar i {
+    color: var(--text-muted);
+}
+
+.chat-list-section {
+    background-color: var(--bg-white);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    flex: 1;
+    overflow-y: auto;
+}
+
+.chat-list-section h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    position: relative;
+}
+
+.chat-item:last-child {
+    border-bottom: none;
+}
+
+.avatar img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.group-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #e0e7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-purple);
+}
+
+.chat-info {
+    flex: 1;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.chat-header h4 {
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.time {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.chat-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+.status-indicator i {
+    color: var(--primary-purple);
+}
+
+.unread-badge {
+    background-color: #ffd700;
+    color: var(--text-dark);
+    font-size: 11px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+}
+
+/* Jendela Chat Utama */
+.chat-window {
+    flex: 1;
+    background-color: var(--bg-white);
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-window-header {
+    padding: 20px 30px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.active-user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.active-user-info .avatar {
+    position: relative;
+}
+
+.online-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: #2ecc71;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.user-details h2 {
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.user-details .status {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.header-actions button {
+    background: none;
+    border: none;
+    color: var(--primary-purple);
+    font-size: 18px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.messages-area {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+}
+
+.message-wrapper.bot {
+    align-self: flex-start;
+}
+
+.message-wrapper.user {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+.message-bubble {
+    padding: 15px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.bot .message-bubble {
+    background-color: var(--bubble-bot);
+    color: var(--text-dark);
+    border-radius: 20px 20px 20px 5px;
+}
+
+.user .message-bubble {
+    background-color: var(--bubble-user);
+    color: white;
+    border-radius: 20px 20px 5px 20px;
+}
+
+.timestamp {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* Input Area */
+.input-area {
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.input-area input {
+    flex: 1;
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.action-btn:hover {
+    color: var(--text-dark);
+}
+
+.input-actions {
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    right: 120px; /* Menyesuaikan agar berada di dalam input box secara visual jika perlu, atau di luar */
+}
+
+.send-btn {
+    background-color: var(--primary-purple);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.send-btn:hover {
+    background-color: var(--primary-purple-hover);
+}

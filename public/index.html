@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechDev Mentor Bot</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Kolom Kiri: Sidebar Menu -->
+        <nav class="sidebar">
+            <div class="profile-pic">
+                <img src="https://ui-avatars.com/api/?name=User&background=random" alt="User">
+            </div>
+            <div class="menu-icons">
+                <a href="#" class="icon"><i class="fa-solid fa-house"></i></a>
+                <a href="#" class="icon"><i class="fa-solid fa-gear"></i></a>
+                <a href="#" class="icon active"><i class="fa-solid fa-comment-dots"></i></a>
+                <a href="#" class="icon"><i class="fa-regular fa-bell"></i></a>
+            </div>
+            <div class="logout-icon">
+                <a href="#" class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </div>
+        </nav>
+
+        <!-- Kolom Tengah: Daftar Chat -->
+        <aside class="chat-sidebar">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search">
+            </div>
+
+            <div class="chat-list-section">
+                <h3>Groups</h3>
+                <div class="chat-item">
+                    <div class="avatar group-avatar"><i class="fa-solid fa-users"></i></div>
+                    <div class="chat-info">
+                        <div class="chat-header">
+                            <h4>Dev Team</h4>
+                            <span class="time">Today, 9:52pm</span>
+                        </div>
+                        <p>Project deployed!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-list-section">
+                <h3>Person</h3>
+                <div class="chat-item active-chat">
+                    <div class="avatar"><img src="https://ui-avatars.com/api/?name=Tech+Dev&background=6600ff&color=fff" alt="Bot"></div>
+                    <div class="chat-info">
+                        <div class="chat-header">
+                            <h4>TechDev Bot</h4>
+                            <span class="time">Today, 8:02pm</span>
+                        </div>
+                        <p class="status-indicator"><i class="fa-solid fa-check-double"></i> Ready to help</p>
+                    </div>
+                </div>
+                <!-- Mockup additional persons -->
+                <div class="chat-item">
+                    <div class="avatar"><img src="https://ui-avatars.com/api/?name=Charlotte" alt="Charlotte"></div>
+                    <div class="chat-info">
+                        <div class="chat-header">
+                            <h4>Charlotte</h4>
+                            <span class="time">Today, 7:30am</span>
+                        </div>
+                        <p>Hi! Penelope</p>
+                    </div>
+                    <div class="unread-badge">1</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Kolom Kanan: Jendela Chat Utama -->
+        <main class="chat-window">
+            <header class="chat-window-header">
+                <div class="active-user-info">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=Tech+Dev&background=6600ff&color=fff" alt="Bot">
+                        <span class="online-dot"></span>
+                    </div>
+                    <div class="user-details">
+                        <h2>TechDev Bot</h2>
+                        <span class="status">Online</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button><i class="fa-solid fa-phone"></i></button>
+                    <button><i class="fa-solid fa-video"></i></button>
+                    <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </div>
+            </header>
+
+            <div id="chat-box" class="messages-area">
+                <!-- Pesan pembuka -->
+                <div class="message-wrapper bot">
+                    <div class="message-bubble">
+                        Halo! Saya TechDev Mentor Bot. Ada yang bisa dibantu terkait Fullstack atau IoT hari ini?
+                    </div>
+                    <span class="timestamp">Today, 12:00pm</span>
+                </div>
+            </div>
+
+            <form id="chat-form" class="input-area">
+                <button type="button" class="action-btn"><i class="fa-solid fa-paperclip"></i></button>
+                <input type="text" id="user-input" placeholder="Type your message here" autocomplete="off">
+                <div class="input-actions">
+                    <button type="button" class="action-btn"><i class="fa-regular fa-face-smile"></i></button>
+                    <button type="button" class="action-btn"><i class="fa-solid fa-camera"></i></button>
+                </div>
+                <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
